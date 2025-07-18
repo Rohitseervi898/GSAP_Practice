@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body {
+            height:100%;
+            width: 100%;
+            background-color: black;
+            color: white;
+        }
+        /* body {
+            overflow-x: hidden;
+        } */
+    </style>
+</head>
+<body>
+    <div style="width: 100%; height: 100%; background-color: black; display: flex; justify-content: center; align-items: center;">
+        <div class="face" style="width: 500px; height: 500px; border-radius: 50%; background-color: aqua; display: flex; padding-top: 80px; justify-content: space-evenly;">
+            <div class="eyes" style="background-color: white; height: 100px; width: 100px; border-radius: 50% 50%; display: flex; justify-content: center; align-items: center;">
+                <div style="width: 80%; height: 80%; position: relative;">
+                    <div class="eyeball" style="width: 50px; height: 50px; border-radius: 50%; background-color: red; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                </div>
+            </div>
+            <div class="eyes" style="background-color: white; height: 100px; width: 100px; border-radius: 50% 50%; display: flex; justify-content: center; align-items: center;">
+                <div style="width: 80%; height: 80%; position: relative;">
+                    <div class="eyeball" style="width: 50px; height: 50px; border-radius: 50%; background-color: red;  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="gsap.min.js"></script>
+    <script src="ScrollTrigger.min.js"></script>
+    <script>
+        let cursor = document.querySelector("body");
+        document.addEventListener("mousemove",function(dets){
+            let xpoint=(dets.x-window.screen.width/2)/40;
+            let ypoint=(dets.y-window.screen.height/2)/40;
+            
+            console.log(ypoint);
+            console.log(xpoint);
+            // let positionX = dets.x/window.screen.width;
+            // let positionY = dets.y/window.screen.height;
+            // console.log(positionX);
+            // console.log(positionY);
+            gsap.to(".eyeball",{
+                x:xpoint,
+                y:ypoint,
+                duration:0.2
+            })
+        })
+    </script>
+</body>
+</html>

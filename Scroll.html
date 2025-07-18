@@ -19,31 +19,36 @@
         body {
             overflow-x: hidden;
         }
+        /* h1{
+            transform: translateX(-1000px);
+        } */
     </style>
 </head>
 <body>
     <div class="page1" style="height: 100%; width: 100%; background-color: black;"></div>
-    <div class="page2" style="height: 100%; width:max-content; display: flex; align-items: center; background-color: aqua; ">
-        <h1 style="font-size: 30vw; padding-left: 50px;"> I AM A PROGRAMMER</h1>
+    <div class="page2" style="height: 100%; width:max-content; display: flex; align-items: center; background-color: aqua;">
+        <h1 style="font-size: 200px; padding-left: 50px; min-width: max-content;"> I AM A PROGRAMMER(❁´◡`❁) See More 👇 </h1>
     </div>
     <div class="page3" style="height: 100%; width: 100%; background-color: black;"></div>
     <script src="gsap.min.js"></script>
     <script src="ScrollTrigger.min.js"></script>
     <script>
         console.log("Hello World");
-        gsap.registerPlugin(ScrollTrigger) 
+        gsap.registerPlugin(ScrollTrigger)
+        let textlength=document.querySelector(".page2 h1").offsetWidth;
+       let translateamount = textlength - window.innerWidth/2;
         gsap.fromTo(".page2 h1",
             {
-                transform:"translateX(10%)"
+                transform:"translateX(100px)"
             },{
-            transform:"translateX(-75%)",
+            transform:`translateX(-${translateamount}px)`,
             scrollTrigger:{
                 trigger:".page2",
                 start:"top 0%",
                 end:"top -300%",
                 scroller:"body",
-                markers:true,
-                scrub:1,
+                // markers:true,
+                scrub:true,
                 pin:true
             }
         })

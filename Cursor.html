@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body {
+            height:100%;
+            width: 100%;
+            background-color: black;
+            color: white;
+        }
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="cursor" style="width: 80px; height: 80px; position: fixed; border-radius: 50%; background-color: white; visibility: hidden; opacity: 0.2;"></div>
+    <script src="gsap.min.js"></script>
+    <script>
+        let cursor = document.querySelector("#cursor");
+        document.addEventListener("mousemove",function(dets){
+            cursor.style.visibility="visible";
+            gsap.to("#cursor",{
+                x:dets.x-50,
+                y:dets.y-50,
+                duration: 0.1,
+            })
+        })
+        document.addEventListener("mouseleave",function(dets){
+            cursor.style.visibility = "hidden";
+        })
+    </script>
+</body>
+</html>
